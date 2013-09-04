@@ -1,0 +1,139 @@
+input.dfx_gc_input {
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+input.dfx_gc_input[type=text], input.dfx_gc_input[type=password] {
+    color: #777;
+    margin: 10px;
+    margin-right: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 200px;
+    height: 25px;
+    border: 1px solid #c7d0d2;
+    border-radius: 2px;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 3px #f5f7f8;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    transition: all .4s ease;
+}
+
+input.dfx_gc_input[type=text]:hover, input.dfx_gc_input[type=password]:hover {
+    border-color: #b6bfc0;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .3), 0 0 0 3px #00D8FF;
+}
+
+input.dfx_gc_input[type=text]:active, input.dfx_gc_input[type=password]:active {
+    border: 1px solid #a8c9e4;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .3), 0 0 0 3px #00D8FF;
+}
+
+input.dfx_gc_input[type=button], input.dfx_gc_input[type=submit] {
+    color: #777;
+    text-align:center;
+    margin: 10px;
+    margin-right: 50px;
+    width: 90px;
+    height: 25px;
+    border: 1px solid #c7d0d2;
+    border-radius: 2px;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 3px #f5f7f8;
+    text-transform:uppercase;
+}
+
+input.dfx_gc_input[type=button]:hover, input.dfx_gc_input[type=submit]:hover {
+    border: 1px solid #b6bfc0;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .3), 0 0 0 3px #00D8FF;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .2s ease;
+    transition: all .4s ease;
+    background:-moz-linear-gradient(top, #eaeaea, #cccccc);
+    background:-webkit-gradient(linear, left top, left bottom, from(#eaeaea), to(#cccccc));
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#badff3', EndColorStr='#7acbed')";
+}
+
+input.dfx_gc_input[type=button]:active, input.dfx_gc_input[type=submit]:active { 
+    border: 1px solid #b6bfc0;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .3), 0 0 0 3px #00D8FF;
+}
+
+input.dfx_gc_input[type=button]:focus, input.dfx_gc_input[type=submit]:focus { 
+    border: 1px solid #b6bfc0;
+    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .3), 0 0 0 3px #00D8FF;
+}
+
+.dfx_gc_required {
+    border-left: 2px solid #ff005a;
+}
+
+/*
+    Link Graphical Control
+*/
+
+a.dfx_gc_link {
+    color: #0ba1df;
+    text-decoration: none;
+}
+
+a.dfx_gc_link:visited {
+    color: #0ba1df;
+    text-decoration: none;
+}
+
+a.dfx_gc_link:hover {
+    color: #0ba1df;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a.dfx_gc_link:active {
+    color: #0ba1df;
+    text-decoration: none;
+}
+
+/*
+    Grid Graphical Control
+*/
+
+table.dfx_gc_grid {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+    box-shadow: 0 10px 10px rgba(0, 0, 3, .5);
+}
+
+table.dfx_gc_grid th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+
+table.dfx_gc_grid td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+div.dfx_gc_form {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+}
+div.dfx_gc_form tr td {
+    vertical-align: middle;
+    text-align: left;
+    margin-top: 0px;
+}
