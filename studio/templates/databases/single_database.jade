@@ -1,0 +1,8 @@
+li
+    div.dbx_dbs_divider
+    a.tree-toggle.dfx_dbs_database= databaseName
+        div.btn.icon-trash.btn-small.btn-danger.pull-right
+    ul.nav.dbx_dbs_menu_next_level
+        li
+            form.dbx_dbs_item_creating_form(onsubmit="DfxStudio.databases.createCollection(this); return false;")
+                input.form-control(name="newCollectionName", type="text", placeholder="create new collection")

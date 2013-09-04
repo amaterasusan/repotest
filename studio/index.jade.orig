@@ -1,0 +1,69 @@
+!!!
+html
+    head
+        meta(http-equiv="content-type", content="text/HTML;charset=UTF-8")
+        meta(name="viewport", content="width=device-width,initial-scale=1")
+        title DreamFace Studio
+        link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css", media="screen")
+        link(rel="stylesheet", href="/bootstrap/css/font-awesome.css")
+        link(rel="stylesheet", href="/studio/css/dreamface.studio.css")
+        link(rel="stylesheet", href="/studio/css/dreamface.tree.css")
+        link(rel="stylesheet", href="/styles/flexigrid.pack.css")
+        script(src="/js/jquery-1.9.1.js")
+        script(src="/bootstrap/js/bootstrap.min.js")
+        script(src="/web/js/jquery-sortable.js")
+        script(src="/studio/js/jquery.dfxstudio.js")
+<<<<<<< HEAD
+        script(src="/socket.io/socket.io.js")
+        script(src="/studio/js/ace.js")
+        script(src="/studio/js/mode-javascript.js")
+        script(src="/studio/js/theme-twilight.js")
+=======
+        script(src="/studio/js/jquery.dfxstudio.databases.js")
+        script(src="/js/flexigrid.js")
+        script(src="/js/jade.min.js")
+
+>>>>>>> cf1c194... last databases-tree-ajax
+    body#dfx_body
+        header#dfx_header
+            div#dfx_header_logo
+            div.dfx_header_vertical_border
+            div#dfx_header_tag
+                h4
+                    span.label.label-info #{tenantid}
+            div.dfx_header_vertical_border
+            div#dfx_header_menu
+                ul.nav.nav-pills
+                    li
+                        a(href="javascript:DfxStudio.loadScreen({screenname: 'home'});") Home
+                    li
+                        a(href="javascript:DfxStudio.selectMainMenu({menuid:'dashboard'});") DashBoard
+                    li
+                        a(href="javascript:DfxStudio.selectMainMenu({menuid:'databases'});") Databases
+                    li
+                        a(href="#") Settings
+                    li
+                        a(href="#") Help
+                    li
+                        a(href="#") Logout
+
+                div#dfx_header_loadingbar_wrappers(style='float:right;position:fixed;right:0px;top:0px;height:55px;margin:0;padding-top:5px;min-width:150px;margin-right:10px')
+                    div#dfx_header_loadingbar_container(style='opacity:0')
+                        div#dfx_header_loadingbar_title Loading...
+                        div.progress.progress-striped
+                            div#dfx_header_loadingbar_info.progress-bar.progress-bar-info(style="padding-top:1px;width:40%") 0%
+ 
+        div.dfx_content
+        div#dfx_help_ctx
+            div#dfx_help_ctx_arrow
+            div#dfx_help_ctx_content
+                section.dfx_help_ctx_content_article
+                div#dfx_help_ctx_toolbar
+                    div#dfx_help_ctx_display
+                        a#dfx_help_ctx_hide(href="javascript:DfxStudio.hideHelpContext();") hide
+                    div#dfx_help_ctx_steps
+                        a#dfx_help_ctx_previous(href="javascript:DfxStudio.previousHelpContext();") previous
+                        span &nbsp;/&nbsp;
+                        a#dfx_help_ctx_previous(href="javascript:DfxStudio.nextHelpContext();") next
+        footer#dfx_footer
+            div Copyright (c) DreamFace Interactive, all rights reserved.

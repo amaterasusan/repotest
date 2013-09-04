@@ -1,0 +1,100 @@
+div
+    div.row
+        div.col-7
+            h2 DashBoard
+            div
+                span The dashboard gives you a synthetic view of the your cloud platform.
+                a.btn.btn-link(href="javascript:DfxStudio.selectMainMenu({menuid:'sessions'});") View all active sessions
+            div.panel
+                div.panel-heading
+                    div.panel-title Applications
+                        span(style="margin-left:5px").badge #{applications.length}
+                        img.pull-right(src="images/dfx_icon_application.png")
+                - if (applications.length>0) {
+                    div The list below shows all applications hosted on your platform.
+                    table.table.table-condensed
+                        thead
+                            tr
+                                th Name
+                                th Type
+                                th Description
+                                th Action
+                        tbody
+                        each application, i in applications
+                            tr
+                                td
+                                    a.btn.btn-link(href="javascript:DfxStudio.viewApplication({applicationName:'#{application.name}'});") #{application.name}
+                                td
+                                    span.dfx_table_text Web
+                                td
+                                    span.dfx_table_text #{application.title}
+                                td
+                                    a.btn.btn-danger.btn-small(href="javascript:DfxStudio.deleteApplication({applicationName:'#{application.name}'});")
+                                        span.icon-trash
+                - } else {
+                    div There is no application on your cloud.
+                - }
+                div.panel-footer
+                    a.btn.btn-primary.btn-small(href="javascript:DfxStudio.selectMainMenu({menuid:'create',type:'application'});")
+                        span.icon-plus
+                        span(style="padding-left:5px") Application
+            div.panel
+                div.panel-heading
+                    div.panel-title Widget Catalog
+                        span(style="margin-left:5px").badge 0
+                        img.pull-right(src="images/dfx_icon_widgetcatalog.png")
+                div Search a data widget from the catalog.
+                br
+                form.form-horizontal(method="get", action="#")
+                    fieldset
+                        div.form-group
+                            div.col-lg-6.input-group
+                                input#fldWidgetName.form-control(name="fldWidgetName",type="text", size="20", placeholder="enter a widget name")
+                                span.input-group-btn
+                                    button.btn.btn-default(type="button", onclick="DfxStudio.searchWidget();")
+                                        span.icon-search
+                div#dfx_widget_search_result(style="display:none")
+                    table.table.table-condensed
+                        thead
+                            tr
+                                th Name
+                                th(style="text-align:center") Type
+                                th Description
+                                th Action
+                        tbody#dfx_widget_search_result_body
+                div.panel-footer
+                    a.btn.btn-primary.btn-small(href="javascript:DfxStudio.selectMainMenu({menuid:'create',type:'widget'});")
+                        span.icon-plus
+                        span(style="padding-left:5px") Widget
+            div.panel(style="margin-bottom:50px")
+                div.panel-heading
+                    div.panel-title Query Catalog
+                        span#querylength(style="margin-left:5px").badge 0
+                        img.pull-right(src="images/dfx_icon_querycatalog.png")
+                div Search a data query from the catalog.
+                br
+                form.form-horizontal(method="get", action="#")
+                    fieldset
+                        div.form-group
+                            div.col-lg-6.input-group
+                                input#fldQueryName.form-control(name="fldQueryName",type="text", size="20", placeholder="enter a query name")
+                                span.input-group-btn
+                                    button.btn.btn-default(type="button", onclick="DfxStudio.searchQuery();")
+                                        span.icon-search
+                div#dfx_query_search_result(style="display:none")
+                    table.table.table-condensed
+                        thead
+                            tr
+                                th Name
+                                th Description
+                                th Action
+                        tbody#dfx_query_search_result_body
+                div.panel-footer
+                    a.btn.btn-primary.btn-small(href="javascript:DfxStudio.selectMainMenu({menuid:'create',type:'query'});")
+                        span.icon-plus
+                        span(style="padding-left:5px") Query
+        div.col-5(style="background:#e1e1e1;top:0; margin-bottom:0")
+            div(style="width:520px;margin-left:auto;margin-right:auto")
+                a.twitter-timeline(href="https://twitter.com/twitterapi", data-widget-id="369045271184826368") Tweets by @twitterapi
+                script.
+                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");

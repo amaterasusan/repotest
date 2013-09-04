@@ -1,0 +1,12 @@
+div.form-group.col-3
+    label(for="queryParamType") Type:
+    select#queryParamType.form-control(name="queryParamType", placeholder="")
+        option(value="header") header
+        option(value="request", selected="selected") request
+        option(value="url") url
+
+
+div.form-group
+    button.btn.btn-success.btn-small(type='button', onclick='')
+        span.icon-plus
+        span(style="padding-left:5px") Add Parameter

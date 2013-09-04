@@ -1,0 +1,82 @@
+div
+    h2.dfx_content_title Create Data Query
+    div.col-lg-6(style="padding-bottom:60px")
+        form(action="javascript:void(0);", style="margin-top:10px")
+            fieldset
+                Legend Query Properties
+                div.form-group.col-lg-6
+                    label(for="queryName") Name:
+                    input#queryName.form-control(type="text", name="queryName", placeholder="Query Name", required)
+                div.form-group.col-lg-6
+                    label(for="queryDesc") Description:
+                    input#queryDesc.form-control(type="text", name="queryDesc", placeholder="Query Description")
+                div.form-group.col-lg-6
+                    label(for="queryCat") Category:
+                    div.input-group
+                        select#queryCat.form-control(name="queryCat", placeholder="")
+                            - if (querycats.length>0) {
+                                each querycat, i in querycats
+                                    option(value="#{querycat.name}") #{querycat.name}
+                            - }
+                        span.input-group-btn
+                            button#showPopAddQueryCat.btn.btn-success(type="button", rel="popover", onclick='DfxStudio.showAddQueryCat({});')
+                                span.icon-plus
+                div.form-group.col-lg-3
+                    label(for="queryFormat") Format:
+                    select#queryFormat.form-control(name="queryFormat", placeholder="")
+                        option(value="xml") xml
+                        option(value="json", selected="selected") json
+            fieldset
+                Legend Query Connector Settings
+                div.form-group.col-6
+                    label(for="queryRequestUrl") Request URL:
+                    input#queryRequestUrl.form-control(type="text", name="queryRequestUrl", placeholder="Request URL")
+                div.form-group.col-3
+                    label(for="queryRequestType") Request Type:
+                    select#queryRequestType.form-control(name="queryRequestType", placeholder="")
+                        option(value="GET", selected="selected") GET
+                        option(value="POST") POST
+            fieldset
+                Legend Query Parameters
+                div#dfx_add_params(style="display:none")
+                    table.table.table-condensed
+                        thead
+                            tr
+                                th Name
+                                th Type
+                                th Value
+                            tbody#dfx_add_params_body
+
+                div.form-group.col-3
+                    button.btn.btn-success.btn-small(type='button', onclick='DfxStudio.addQueryParams();')
+                        span.icon-plus
+                        span(style="padding-left:5px") Add Parameter
+
+            fieldset
+                Legend Query MetaData
+                div.form-group.col-6
+                    button.btn.btn-success.btn-small(type='button', onclick='DfxStudio.executeQuery({});')
+                        span Execute
+                    button.btn.btn-success.btn-small(type='button', onclick='DfxStudio.viewQuery({});', style="margin-left:10px")
+                        span View Result
+            br
+            button.btn.btn-primary(type='submit', onclick='DfxStudio.createQuery({});')
+                span.icon-ok
+                span(style="padding-left:5px") Save
+            button.btn.btn-primary(type='button', onclick='DfxStudio.selectMainMenu({menuid:"dashboard"});', style="margin-left:10px")
+                span.icon-remove
+                span(style="padding-left:5px") Cancel
+
+div.popover-markup.hide
+    div.head
+        span.text-info Adding a category
+    div.content
+        form.form-inline
+            div.control-group(style="width:270px")
+                div.controls
+                    input#queryCatName.form-control(type="text", name="queryCatName", placeholder="Category name", style="width:160px", required = "required")
+                    button.btn.btn-primary.submitPopover(type="button",style="margin-left:6px")
+                        span.icon-ok
+                    button.btn.closePopover(type="button",style="margin-left:6px")
+                        span.icon-remove
+

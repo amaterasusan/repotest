@@ -1,0 +1,113 @@
+div
+    h2.dfx_content_title Query:#{query.name}
+    div.col-lg-6(style="padding-bottom:60px")
+        form(action="javascript:void(0);", style="margin-top:10px")
+            fieldset
+                Legend Query Properties
+                div.form-group.col-lg-6
+                    label(for="queryName") Name:
+                    input#queryName.form-control(type="text", name="queryName", value='#{query.name}', placeholder="Query Name", required)
+                div.form-group.col-lg-6
+                    label(for="queryDesc") Description:
+                    input#queryDesc.form-control(type="text", name="queryDesc", value='#{query.description}', placeholder="Query Description")
+                div.form-group.col-lg-6
+                    label(for="queryCat") Category:
+                    div.input-group
+                        select#queryCat.form-control(name="queryCat", placeholder="")
+                            - if (querycats.length>0) {
+                                each querycat, i in querycats
+                                    - if(querycat.name == query.category){
+                                        option(value="#{querycat.name}", selected="selected") #{querycat.name}
+                                    - } else {
+                                        option(value="#{querycat.name}") #{querycat.name}
+                                    - }
+                            - }
+                        span.input-group-btn
+                            button#showPopAddQueryCat.btn.btn-success(type="button", rel="popover", onclick='DfxStudio.showAddQueryCat({});')
+                                span.icon-plus
+                div.form-group.col-lg-3
+                    label(for="queryFormat") Format:
+                    - var arrFormat = ["xml", "json"]
+                    select#queryFormat.form-control(name="queryFormat", placeholder="")
+                        each item, i in arrFormat
+                            - if(query.format == item){
+                                option(value="#{item}", selected="selected") #{item}
+                            - } else {
+                                option(value="#{item}") #{item}
+                            - }
+
+            fieldset
+                Legend Query Connector Settings
+                div.form-group.col-6
+                    label(for="queryRequestUrl") Request URL:
+                    input#queryRequestUrl.form-control(type="text", name="queryRequestUrl", value="#{query.settings.url}", placeholder="Request URL")
+                div.form-group.col-3
+                    label(for="queryRequestType") Request Type:
+                    - var arrReqType = ["GET", "POST"]
+                    select#queryRequestType.form-control(name="queryRequestType", placeholder="")
+                        each item, i in arrReqType
+                            - if(query.settings.typerequest == 'HTTP_'+item){
+                                option(value="#{item}", selected="selected") #{item}
+                            - } else {
+                                option(value="#{item}") #{item}
+                            - }
+            fieldset
+                Legend Query Parameters
+                div#dfx_add_params(style="display:none")
+                    table.table.table-condensed
+                        thead
+                            tr
+                                th Name
+                                th Type
+                                th Value
+                            tbody#dfx_add_params_body
+                                - if (query.parameters.length>0) {
+                                    each parameter, i in query.parameters
+                                        tr
+                                            td
+                                                input.form-control(id="queryParamName#{i}", type="text", name="queryParam[name]", placeholder="Name Parameter", value="#{parameter.name}")
+                                            td
+                                                - var arrParType = ["header", "request", "url"]
+                                                select.form-control(id="queryParamType#{i}", name="queryParam[type]", placeholder="")
+                                                    each item, i in arrParType
+                                                        - if(parameter.type == item){
+                                                            option(value="#{item}", selected="selected") #{item}
+                                                        - } else {
+                                                            option(value="#{item}") #{item}
+                                                        - }
+                                            td
+                                                input.form-control(id="queryParamValue#{i}", type="text", name="queryParam[value]", placeholder="Value Parameter", value="#{parameter.value}")
+                                - }
+                div.form-group.col-3
+                    button.btn.btn-success.btn-small(type='button', onclick='DfxStudio.addQueryParams();')
+                        span.icon-plus
+                        span(style="padding-left:5px") Add Parameter
+
+            fieldset
+                Legend Query MetaData
+                div.form-group.col-6
+                    button.btn.btn-success.btn-small(type='button', onclick='')
+                        span Execute
+                    button.btn.btn-success.btn-small(type='button', onclick='', style="margin-left:10px")
+                        span View Result
+            br
+            button.btn.btn-primary(type='submit', onclick='DfxStudio.updateQuery({queryName:"#{query.name}"});')
+                span.icon-ok
+                span(style="padding-left:5px") Save
+            button.btn.btn-primary(type='button', onclick='DfxStudio.selectMainMenu({menuid:"dashboard"});', style="margin-left:10px")
+                span.icon-remove
+                span(style="padding-left:5px") Cancel
+
+div.popover-markup.hide
+    div.head
+        span.text-info Adding a category
+    div.content
+        form.form-inline
+            div.control-group(style="width:270px")
+                div.controls
+                    input#queryCatName.form-control(type="text", name="queryCatName", placeholder="Category name", style="width:160px", required = "required")
+                    button.btn.btn-primary.submitPopover(type="button",style="margin-left:6px")
+                        span.icon-ok
+                    button.btn.closePopover(type="button",style="margin-left:6px")
+                        span.icon-remove
+

@@ -1,0 +1,78 @@
+div
+    h2 Application: #{application.name}
+    div
+        span This page shows you the properties of your application
+    div.row(style="margin-top:10px")
+        div.col-6
+            form(action="javascript:void(0);", id='applicationForm')
+                div.panel(style="margin-bottom:50px")
+                    div.panel-heading
+                        div.panel-title Application Properties
+                            i.pull-right.icon-edit
+                    legend General Information
+                    div.form-group
+                        label(for="fldTitle") Title:
+                        input#fldTitle.form-control(type="text", value='#{application.title}', data-inputname='title')
+                    div.form-group
+                        label(for="fldOwnerId") Owner:
+                        input#fldOwnerId.form-control(type="text", value='#{application.ownerId}', data-inputname='ownerId')
+                    div.form-group
+                        label(for="fldRequestDate") Last modified:
+                        input#fldRequestDate.form-control(readonly, type="text", value='#{application.requestDate}')
+                    legend GitHub Properties
+                    div.form-group
+                        label(for="fldGithubToken") Authentication Token:
+                        input#fldGithubToken.form-control(type="text", value='#{application.github.token}', data-inputname='githubToken')
+                    div.form-group
+                        label(for="fldGithubUsername") User Name:
+                        input#fldGithubUsername.form-control(type="text", value='#{application.github.username}', data-inputname='username')
+                    div.form-group
+                        label(for="fldGithubRepository") Repository:
+                        input#fldGithubRepository.form-control(type="text", value='#{application.github.repository}', data-inputname='repository')
+                    legend PhoneGap Properties
+                    div.form-group
+                        label(for="fldPhonegapToken") Authentication Token:
+                        input#fldPhonegapToken.form-control(type="text", value='#{application.phonegap.token}', data-inputname='phonegapToken')
+                    div.panel-footer
+                        a.btn.btn-primary.btn-small(href="javascript:DfxStudio.updateApplication({applicationName:'#{application.name}',formId:'applicationForm'});")
+                            span.icon-ok
+                            span(style="padding-left:5px") Save
+                        a.btn.btn-primary.btn-small(href="javascript:DfxStudio.selectMainMenu({menuid:'dashboard'});", (style="margin-left:10px"))
+                            span.icon-remove
+                            span(style="padding-left:5px") Cancel
+                
+        div.col-6
+            div.panel.panel-info
+                    div.panel-heading
+                        div.panel-title User Interface
+                            span.pull-right.icon-desktop
+                    ul.nav.nav-pills.nav-stacked(style="margin-top:20px;max-width:260px")
+                        li
+                            a(href='#', onclick="DfxStudio.editApplicationUI({applicationName:'#{application.name}'});")
+                                span.icon-sitemap(style="margin-left:2px")
+                                span(style="margin-left:10px") Screens and Navigation
+            div.panel.panel-info
+                    div.panel-heading
+                        div.panel-title Build Your Application
+                            span.pull-right.icon-cogs
+                    span DreamFace compiles your application, upload it on your source version control repository and produces a .zip package.
+                    ul.nav.nav-pills.nav-stacked(style="margin-top:20px;max-width:260px")
+                        li
+                            a(href='#', onclick="DfxStudio.buildZipApplication({applicationName:'#{application.name}'});")
+                                span.icon-cloud-download(style="margin-left:2px")
+                                span(style="margin-left:10px") Build and Download a ZIP
+                        li
+                            a(href='#', onclick="DfxStudio.buildGithubApplication({applicationName:'#{application.name}'});")
+                                span.icon-github-alt
+                                span(style="margin-left:10px") Build and Publish on GitHub
+                        li
+                            a(href='#', onclick="DfxStudio.buildPhoneGapApplication({applicationName:'#{application.name}'});")
+                                span.icon-qrcode
+                                span(style="margin-left:10px") Build and Publish on PhoneGap
+        if (application.phonegap.applicationId !== "")
+            div.col-6
+                div.panel.panel-info
+                    div.dfx_content_subtitle Scan to install application
+                    br
+                    div(style="overflow:hidden;width:150px;height:150px")
+                        iframe(id='testframe', src="https://build.phonegap.com/apps/#{application.phonegap.applicationId}/builds", style="margin-left: -1347px;margin-top:-98px;width:2000px;height:2000px")

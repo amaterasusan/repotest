@@ -1,0 +1,61 @@
+div
+    div.row
+        div.col-6
+            h2.dfx_content_title Create Data Query
+
+            form(action="javascript:void(0);", style="margin-top:10px")
+                fieldset
+                    Legend Query Properties
+                    div.row
+                        div.form-group.col-lg-6
+                            label(for="dfx_query_input_queryName") Name:
+                            input#dfx_query_input_queryName.form-control(type="text", name="dfx_query_input_queryName", placeholder="query name")
+                        div.form-group.col-lg-6
+                            label(for="dfx_query_input_queryDesc") Description:
+                            input#dfx_query_input_queryDesc.form-control(type="text", name="dfx_query_input_queryDesc", placeholder="query description")
+                        div.form-group.col-lg-6
+                            label(for="queryCat") Category:
+                            select#queryCat.form-control(name="queryCat", placeholder="")
+                        div.form-group.col-lg-6
+                            label(for="queryFormat") Format:
+                            select#queryFormat.form-control(name="queryFormat", placeholder="")
+                                option(value="xml") xml
+                                option(value="json", selected="selected") json
+                br
+                fieldset
+                    Legend Query Connector Settings
+                    div.row
+                        div.form-group.col-8
+                            label(for="dfx_query_input_requestUrl") Request URL:
+                            input#dfx_query_input_requestUrl.form-control(type="text", name="dfx_query_input_requestUrl", placeholder="Request URL")
+                        div.form-group.col-6
+                            label(for="queryRequestType") Format:
+                            select#queryRequestType.form-control(name="queryRequestType", placeholder="")
+                                option(value="get", selected="selected") get
+                                option(value="post") post
+                br
+                fieldset
+                    Legend Query Parameters
+                    div.row
+                        div.form-group.col-6
+                            a.btn.btn-success.btn-small(href="javascript:")
+                                span.icon-plus
+                                span(style="padding-left:5px") Add
+                br
+                fieldset
+                    Legend Query MetaData
+                    div.row
+                        div.form-group.col-3
+                            a.btn.btn-success.btn-small(href="javascript:")
+                                span Execute
+                        div.form-group.col-3
+                            a.btn.btn-success.btn-small(href="javascript:")
+                                span View Result
+                br
+                button.btn.btn-primary(type='submit', onclick='DfxStudio.createQuery({});')
+                    span.icon-ok
+                    span(style="padding-left:5px") Save
+                button.btn.btn-primary(type='button', onclick='DfxStudio.selectMainMenu({menuid:"dashboard"});', style="margin-left:10px")
+                    span.icon-remove
+                    span(style="padding-left:5px") Cancel
+                br

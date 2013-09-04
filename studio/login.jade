@@ -1,0 +1,35 @@
+!!!
+html
+    head
+        meta(http-equiv="content-type", content="text/HTML;charset=UTF-8")
+        meta(name="viewport", content="width=device-width,initial-scale=1")
+        title DreamFace Studio
+        link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css", media="screen")
+        link(rel="stylesheet", href="/studio/css/dreamface.studio.css")
+        script(src="/js/jquery-1.9.1.js")
+        script(src="/bootstrap/js/bootstrap.min.js")
+    body(style="height:100%")
+    div#dfx_studio_login.panel
+        div.row
+            div.col-6.col-lg-4
+            div.col-6.col-lg-4
+                div#dfx_login_title
+                    img(src="../images/dfx_login_logo.png")
+                div.alert.alert-info
+                    span Cloud Platform:&nbsp;
+                    strong  #{tenantid}
+                div.panel.panel-primary
+                    div.panel-heading Login to DreamFace Studio
+                    form(method="get",action="/studio/index.html")
+                        div.form-group
+                            label(for="username") User ID
+                            input#username.form-control(type="text", placeholder="enter your user id")
+                        div.form-group
+                            label(for="password") User ID
+                            input#password.form-control(type="password", placeholder="enter your password")
+                        button.btn.btn-primary(type="submit") Sign In
+                div#dfx_login_title
+                    img(src="../images/dfx_logo.png")
+                    br
+                    small Copyright (c) DreamFace Interactive, all rights reserved.
+            div.col-6.col-lg-4

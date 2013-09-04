@@ -1,0 +1,29 @@
+div
+    h2 Create Widget
+    div.col-lg-6
+        form(action="javascript:void(0);", style="margin-top:10px")
+            fieldset
+                Legend Main Properties
+                div.form-group.col-lg-4
+                    label(for="fldName") Name:
+                    input#fldName.form-control(type="text", name="fldName", placeholder="Widget name")
+                div.form-group.col-lg-4
+                    label(for="fldDescription") Description:
+                    input#fldDescription.form-control(type="text", name="fldDescription", placeholder="widget description")
+                div.form-group.col-lg-4
+                    label(for="fldOwnerId") Owner:
+                    input#fldOwnerId.form-control(type="text", name="fldOwnerId", placeholder="ex: john")
+                div.form-group.col-lg-4
+                    label(for="fldCategory") Category:
+                    input#fldCategory.form-control(type="text", name="fldCategory", placeholder="widget category")
+                div.form-group.col-lg-3
+                    label(for="fldType") Type:
+                    select#fldType.form-control(name="fldType", placeholder="select a type")
+                        option(value="jade") jade
+                        option(value="node.js") node.js
+            button.btn.btn-primary(type='submit', onclick='DfxStudio.createWidget();')
+                span.icon-ok
+                span(style="padding-left:5px") Save
+            button.btn.btn-primary(type='button', onclick='DfxStudio.selectMainMenu({menuid:"dashboard"});', style="margin-left:10px")
+                span.icon-remove
+                span(style="padding-left:5px") Cancel
